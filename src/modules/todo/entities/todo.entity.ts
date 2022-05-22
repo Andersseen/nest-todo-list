@@ -6,7 +6,7 @@ export class Todo {
   id: number;
 
   @Column()
-  Name: string;
+  name: string;
 
   @Column({ default: false })
   isCompleted: boolean;
