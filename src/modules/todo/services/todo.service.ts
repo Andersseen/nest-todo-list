@@ -10,11 +10,11 @@ export class TodoService {
     private todoRepository: Repository<Todo>,
   ) {}
 
-  findAll(): Promise<Todo[]> {
+  async findAll(): Promise<Todo[]> {
     return this.todoRepository.find();
   }
 
-  findOne(id: string): Promise<Todo> {
+  async findOne(id: string): Promise<Todo> {
     return this.todoRepository.findOne(id);
   }
 
@@ -22,12 +22,12 @@ export class TodoService {
     await this.todoRepository.delete(id);
   }
 
-  create(todo: Todo): Promise<Todo> {
+  async create(todo: Todo): Promise<Todo> {
     delete todo.id;
     return this.todoRepository.save(todo);
   }
 
-  update(todo: Todo): Promise<Todo> {
+  async update(todo: Todo): Promise<Todo> {
     return this.todoRepository.save(todo);
   }
 }
